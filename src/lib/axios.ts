@@ -21,3 +21,13 @@ export const spofifyAccountAPI = async() : Promise<string | null> => {
         return null
     }
 }
+
+export const api = (accessToken: string) => {
+    return axios.create({
+        baseURL: env.VITE_SPOTIFY_WEB_API_URL,
+        headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+}
