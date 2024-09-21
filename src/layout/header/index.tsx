@@ -7,7 +7,7 @@ import spotifyLogo from '../../assets/spotify-icon.svg'
 
 export function Header() {
     return (
-        <header className="flex items-center justify-between h-11 px-4 py-10">
+        <header className="flex items-center justify-between h-11 px-4 py-8 mx-2">
             <img src={spotifyLogo} alt="spofity logo" className="h-10 w-10 cursor-pointer"/>
 
             <div className="flex items-center min-w-[560px] bg-[#1f1f1f] px-4 py-3 rounded-3xl">
