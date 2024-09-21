@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { env } from '../env'
 
-export const spofifyAccountAPI = async() => {
+export const spofifyAccountAPI = async() : Promise<string | null> => {
 
     const params = new URLSearchParams()
     params.append('grant_type', 'client_credentials')
@@ -18,5 +18,6 @@ export const spofifyAccountAPI = async() => {
         return access_token
     } catch (error) {
         console.log(error)
+        return null
     }
 }
