@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { env } from '../env'
 
+const accessToken = localStorage.getItem('access_token')
+
 export const spofifyAccountAPI = async() : Promise<string | null> => {
 
     const params = new URLSearchParams()
@@ -22,7 +24,7 @@ export const spofifyAccountAPI = async() : Promise<string | null> => {
     }
 }
 
-export const api = (accessToken: string) => {
+export const api = () => {
     return axios.create({
         baseURL: env.VITE_SPOTIFY_WEB_API_URL,
         headers: {

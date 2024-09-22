@@ -1,14 +1,17 @@
+import { QueryClientProvider } from "react-query"
 import { AuthProvider } from "./context/auth-context"
 import { Layout } from "./layout"
-import { spofifyAccountAPI } from "./lib/axios"
+import { queryClient } from "./lib/react-query"
 
 function App() {
-  spofifyAccountAPI()
   return (
     <AuthProvider>
-      <div className="h-screen w-screen bg-black">
-        <Layout />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="h-screen w-screen bg-black">
+          <Layout />
+        </div>        
+      </QueryClientProvider>
+
     </AuthProvider>
   )
 }

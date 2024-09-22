@@ -1,6 +1,26 @@
 import { api } from "../lib/axios"
 
-export async function getUserProfile(token: string) {
-    const response = await api(token).get('/me')
-    console.log(response)
+export interface ISpotifyUserData {
+    display_name: string;
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    images: Array<{
+      url: string;
+      height: number;
+      width: number;
+    }>;
+    type: string;
+    uri: string;
+    followers: {
+      href: string | null;
+      total: number;
+    };
+}
+
+export async function fetchUserProfile() {
+    const response = await api().get<ISpotifyUserData>('/me')
+    return response.data
 }

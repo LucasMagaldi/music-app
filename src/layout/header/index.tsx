@@ -5,7 +5,11 @@ import { MdOutlineDownloading } from "react-icons/md"
 
 import spotifyLogo from '../../assets/spotify-icon.svg'
 
-export function Header() {
+interface IHeaderProps {
+    profileImage: string | undefined
+}
+
+export function Header({ profileImage } : IHeaderProps) {
     return (
         <header className="flex items-center justify-between h-11 px-4 py-8 mx-2">
             <img src={spotifyLogo} alt="spofity logo" className="h-10 w-10 cursor-pointer"/>
@@ -28,7 +32,7 @@ export function Header() {
                 
                 <IoIosNotificationsOutline size={22}/>
                 <div>
-                    <img src="" alt="" />
+                    <img src={profileImage} className="rounded-full w-12 h-12 cursor-pointer"/>
                 </div>
             </div>
         </header>
